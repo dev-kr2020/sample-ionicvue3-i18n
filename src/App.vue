@@ -4,15 +4,27 @@
   </ion-app>
 </template>
 
-<script lang="ts">
+<script >
 import { IonApp, IonRouterOutlet } from '@ionic/vue';
-import { defineComponent } from 'vue';
-
-export default defineComponent({
+import { useI18n } from 'vue-i18n'
+export default {
   name: 'App',
+  props: {
+  },
+  data () {
+    return {
+    }
+  },
+  setup () {
+    return useI18n()
+  },
   components: {
     IonApp,
     IonRouterOutlet
+  },
+  computed: {
+  },
+  methods: {
   }
-});
+}
 </script>

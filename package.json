@@ -15,6 +15,7 @@
     "@ionic/vue-router": "^0.4.0",
     "core-js": "^3.6.5",
     "vue": "^3.0.0-0",
+    "vue-i18n": "^9.0.0-beta.2",
     "vue-router": "^4.0.0-0"
   },
   "devDependencies": {
