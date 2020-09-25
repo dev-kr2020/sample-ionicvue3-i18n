@@ -1,9 +1,9 @@
 {
-  "messages": {
-    "home": "Home One",
-    "about": "About",
-    "tab1": "Adarsh",
-    "tab2": "Praneel",
-    "tab3": "Shaili"
+  "message": {
+    "triangle": "Triangle",
+    "ellipse": "Ellipse",
+    "square": "Square",
+    "login": "Login",
+    "save": "Save"
   }
 }

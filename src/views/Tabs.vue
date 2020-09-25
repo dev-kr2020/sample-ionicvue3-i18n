@@ -5,17 +5,17 @@
         <ion-tab-bar slot="bottom">
           <ion-tab-button tab="tab1" href="/tabs/tab1">
             <ion-icon :icon="triangle" />
-            <ion-label>{{ t('messages.tab1')}}</ion-label>
+            <ion-label>{{ t('message.triangle')}}</ion-label>
           </ion-tab-button>
 
           <ion-tab-button tab="tab2" href="/tabs/tab2">
             <ion-icon :icon="ellipse" />
-            <ion-label>{{ t('messages.tab2')}}</ion-label>
+            <ion-label>{{ t('message.ellipse')}}</ion-label>
           </ion-tab-button>
 
           <ion-tab-button tab="tab3" href="/tabs/tab3">
             <ion-icon :icon="square" />
-            <ion-label>{{ t('messages.tab3')}}</ion-label>
+            <ion-label>{{ t('message.square')}}</ion-label>
           </ion-tab-button>
         </ion-tab-bar>
       </ion-tabs>
@@ -26,15 +26,18 @@
 <script lang="ts">
 import { IonTabBar, IonTabButton, IonTabs, IonContent, IonLabel, IonIcon, IonPage } from '@ionic/vue';
 import { ellipse, square, triangle } from 'ionicons/icons';
-
+import { useI18n } from 'vue-i18n'
 export default {
   name: 'Tabs',
   components: { IonContent, IonLabel, IonTabs, IonTabBar, IonTabButton, IonIcon, IonPage },
   setup() {
+      const { t, tm } = useI18n();
     return {
       ellipse,
       square,
       triangle,
+      t,
+      tm
     }
   }
 }

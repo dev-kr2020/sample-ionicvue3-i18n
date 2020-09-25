@@ -1,12 +1,16 @@
 <template>
-  <ion-app>
-    <ion-router-outlet />
+  <ion-app id="main-app">
+     <ion-split-pane content-id="main">
+       <Menu />
+      <ion-router-outlet :animated="false" id="main" />
+    </ion-split-pane>
   </ion-app>
 </template>
 
 <script >
 import { IonApp, IonRouterOutlet } from '@ionic/vue';
 import { useI18n } from 'vue-i18n'
+import Menu from '@/components/Menu.vue'
 export default {
   name: 'App',
   props: {
@@ -19,6 +23,7 @@ export default {
     return useI18n()
   },
   components: {
+    Menu,
     IonApp,
     IonRouterOutlet
   },
