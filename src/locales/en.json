@@ -4,6 +4,7 @@
     "ellipse": "Ellipse",
     "square": "Square",
     "login": "Login",
+    "logout": "Logout",
     "save": "Save"
   }
 }

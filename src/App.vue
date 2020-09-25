@@ -8,7 +8,7 @@
 </template>
 
 <script >
-import { IonApp, IonRouterOutlet } from '@ionic/vue';
+import { IonApp, IonRouterOutlet, IonSplitPane } from '@ionic/vue';
 import { useI18n } from 'vue-i18n'
 import Menu from '@/components/Menu.vue'
 export default {
@@ -25,7 +25,8 @@ export default {
   components: {
     Menu,
     IonApp,
-    IonRouterOutlet
+    IonRouterOutlet,
+    IonSplitPane
   },
   computed: {
   },

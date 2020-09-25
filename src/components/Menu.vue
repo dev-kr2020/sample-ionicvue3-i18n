@@ -41,6 +41,14 @@
             <ion-label>{{ t('message.login') }}</ion-label>
             
           </ion-item>
+           <ion-item button @click="navigate('/logout')">
+            <ion-icon
+              slot="start"
+              :icon="logOut"            
+            />
+            <ion-label>{{ t('message.logout') }}</ion-label>
+            
+          </ion-item>
         </ion-menu-toggle>
       </ion-list>   
     </ion-content>
@@ -63,6 +71,7 @@ import {
 } from '@ionic/vue'
 import {
   logIn,
+  logOut,
   triangle,
   ellipse,
   square
@@ -102,7 +111,8 @@ export default {
     return {
       t,
       tm,     
-      logIn       
+      logIn,
+      logOut       
     }
   },
   components: {

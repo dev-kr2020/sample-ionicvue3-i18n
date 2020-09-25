@@ -1,8 +1,8 @@
 <template>
 	<ion-page>
-        <Header title="message.login" showFilter='true'/>
+        <Header title="message.logout" showFilter="true"/>
 		<ion-content>
-            {{t('message.login')}}
+            {{t('message.logout')}}
 		</ion-content>
 	</ion-page>
 </template>
@@ -14,7 +14,7 @@ import {
 import { useI18n } from 'vue-i18n'
 import Header from '@/components/Header'
 export default {
-  name: 'Login',
+  name: 'Logout',
   props: {
     
   },
