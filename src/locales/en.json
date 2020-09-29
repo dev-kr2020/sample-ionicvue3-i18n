@@ -3,6 +3,7 @@
     "triangle": "Triangle",
     "ellipse": "Ellipse",
     "square": "Square",
+    "account": "Account",
     "login": "Login",
     "logout": "Logout",
     "save": "Save"

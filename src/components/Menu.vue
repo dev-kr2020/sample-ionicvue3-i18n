@@ -33,6 +33,14 @@
       </ion-list>
       <ion-list>
         <ion-menu-toggle auto-hide="false">
+           <ion-item button @click="navigate('/account')">
+            <ion-icon
+              slot="start"
+              :icon="person"            
+            />
+            <ion-label>{{ t('message.account') }}</ion-label>
+            
+          </ion-item>
           <ion-item button @click="navigate('/login')">
             <ion-icon
               slot="start"
@@ -74,7 +82,8 @@ import {
   logOut,
   triangle,
   ellipse,
-  square
+  square,
+  person
   
 } from 'ionicons/icons'
 import { useI18n } from 'vue-i18n'
@@ -88,19 +97,19 @@ export default {
           name: 'triangle',
           title: 'message.triangle',
           icon: triangle,
-          url: '/tabs/tab1'
+          url: '/tabs/triangle'
         },
         {
           name: 'ellipse',
           title: 'message.ellipse',
           icon: ellipse,
-          url: '/tabs/tab2'
+          url: '/tabs/ellipse'
         },
         {
           name: 'square',
           title: 'message.square',
           icon: square,
-          url: '/tabs/tab3'
+          url: '/tabs/square'
         }        
       ]
       
@@ -112,7 +121,8 @@ export default {
       t,
       tm,     
       logIn,
-      logOut       
+      logOut,
+      person       
     }
   },
   components: {

@@ -2,27 +2,42 @@
   <div id="container">
     <strong>{{ name }}</strong>
     <p>Explore <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+    
   </div>
 </template>
 
 <script lang="ts">
 
+import { useI18n } from 'vue-i18n';
 export default {
   name: 'ExploreContainer',
   props: {
     name: String
+  },
+  setup () {
+    const { t, tm } = useI18n();
+    return {
+      t,
+      tm      
+    };
+  },
+  data () {
+    return {
+      
+    }
+  },
+  components: {
+    
+  },
+  methods: {
+    
   }
 }
 </script>
 
 <style scoped>
 #container {
-  text-align: center;
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
+  text-align: center;    
 }
 
 #container strong {

@@ -24,6 +24,9 @@
         <div align="center">
           {{ t(title) }}
         </div>
+        <div>
+         <small>Selected filter: {{ selectedFilter }}</small> 
+        </div>
       </ion-title>
     </ion-toolbar>
   </ion-header>

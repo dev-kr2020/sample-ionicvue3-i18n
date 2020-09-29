@@ -3,17 +3,17 @@
     <ion-content>
       <ion-tabs>
         <ion-tab-bar slot="bottom">
-          <ion-tab-button tab="tab1" href="/tabs/tab1">
+          <ion-tab-button tab="tab1" href="/tabs/triangle">
             <ion-icon :icon="triangle" />
             <ion-label>{{ t('message.triangle')}}</ion-label>
           </ion-tab-button>
 
-          <ion-tab-button tab="tab2" href="/tabs/tab2">
+          <ion-tab-button tab="tab2" href="/tabs/ellipse">
             <ion-icon :icon="ellipse" />
             <ion-label>{{ t('message.ellipse')}}</ion-label>
           </ion-tab-button>
 
-          <ion-tab-button tab="tab3" href="/tabs/tab3">
+          <ion-tab-button tab="tab3" href="/tabs/square">
             <ion-icon :icon="square" />
             <ion-label>{{ t('message.square')}}</ion-label>
           </ion-tab-button>
