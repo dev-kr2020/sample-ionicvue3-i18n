@@ -15,5 +15,12 @@ export enum EmailType {
 export const defaultUser = {
   name: '',
   phone: { phoneType: '', phoneNumber: ''},
-  email: { emailType: '', email: ''}
+  email: { emailType: '', email: '' },
+  sports: ''
+}
+export enum Sports {
+  BASKETBALL = 'BASKETBALL',
+  FOOTBALL = 'FOOTBALL',
+  SOCCER = 'SOCCER',
+  SWIMMING = 'SWIMMING'
 }

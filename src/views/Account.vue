@@ -44,6 +44,18 @@
             </ion-row>
           </ion-grid>
         </ion-item>
+         <ion-item>
+          <ion-label position="stacked">{{
+            t("message.sports")
+          }}</ion-label>
+            <ion-select
+                v-bind="user.sports"
+                multiple="true"
+              >
+                <ion-select-option  v-for="r in sports" :key="r"
+                      :value="r">{{t('message.'+r)}}</ion-select-option>                
+              </ion-select>
+        </ion-item>
       </ion-list>
       <ion-button expand="block" @click="saveUser()">{{t('message.save')}}</ion-button>
     </ion-content>
@@ -113,6 +125,9 @@ export default {
     emailType () {
       return g.EmailType
     },
+    sports () {
+      return g.Sports
+    },
   },
   methods: {
     edit () {        
@@ -122,7 +137,8 @@ export default {
         this.isEdit=true;
       }
     },
-    async saveUser () {      
+    async saveUser () {
+      alert("selected sports = > " +this.user.sports)
       await this.$store.dispatch('saveUser', this.user)
     }
   },

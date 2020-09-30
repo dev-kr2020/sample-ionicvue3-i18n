@@ -10,6 +10,11 @@
     "save": "Save",
     "name": "Name",
     "email": "Email",
-    "phone": "Phone"
+    "phone": "Phone",
+    "sports": "Sports",
+    "BASKETBALL": "Basketball",
+    "FOOTBALL": "Football",
+    "SOCCER": "Soccer",
+    "SWIMMING": "Swimming"
   }
 }

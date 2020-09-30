@@ -12,6 +12,7 @@ export interface User {
   name: string;
   phone: Phone;
   email: Email;
+  sports: string;
 }
 export interface UserState {
   user: User;
