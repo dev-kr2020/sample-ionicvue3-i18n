@@ -10,7 +10,13 @@
              <ion-img src="/assets/icon/icon.png" />
           </ion-avatar>
         </ion-buttons>
+        <ion-buttons slot="end">
+        <ion-title class="ion-justify-content-center">
+            {{ name }}
+          </ion-title>
+          </ion-buttons>
       </ion-toolbar>
+      
     </ion-header>
     <ion-content>
         <ion-list>
@@ -33,6 +39,13 @@
       </ion-list>
       <ion-list>
         <ion-menu-toggle auto-hide="false">
+           <ion-item button @click="navigate('/filter')" >
+            <ion-icon
+              slot="start"
+              :icon="filter"            
+            />
+            <ion-label>{{ t('message.filter') }}</ion-label>            
+          </ion-item>        
            <ion-item button @click="navigate('/account')">
             <ion-icon
               slot="start"
@@ -75,7 +88,8 @@ import {
   IonMenuToggle,
   IonIcon,
   IonLabel,  
-  IonItem  
+  IonItem,
+  IonTitle
 } from '@ionic/vue'
 import {
   logIn,
@@ -83,7 +97,8 @@ import {
   triangle,
   ellipse,
   square,
-  person
+  person,
+  filter
   
 } from 'ionicons/icons'
 import { useI18n } from 'vue-i18n'
@@ -122,7 +137,8 @@ export default {
       tm,     
       logIn,
       logOut,
-      person       
+      person,
+      filter
     }
   },
   components: {
@@ -137,17 +153,20 @@ export default {
     IonMenuToggle,
     IonIcon,
     IonLabel,    
-    IonItem    
+    IonItem,
+    IonTitle   
   },
   computed: {
-   
+   name () {
+      return this.$store.getters.user.name
+    }
   },
-  methods: {   
+  methods: {
     navigate (url) {    
       if (this.$router.currentRoute.path !== url) {
         this.$router.push(url)
       }
-    }    
+    }
   }
 }
 </script>

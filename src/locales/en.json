@@ -3,9 +3,13 @@
     "triangle": "Triangle",
     "ellipse": "Ellipse",
     "square": "Square",
+    "filter": "Filter",
     "account": "Account",
     "login": "Login",
     "logout": "Logout",
-    "save": "Save"
+    "save": "Save",
+    "name": "Name",
+    "email": "Email",
+    "phone": "Phone"
   }
 }

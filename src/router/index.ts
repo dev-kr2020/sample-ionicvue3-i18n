@@ -30,6 +30,11 @@ const routes: Array<RouteRecordRaw> = [
     ]
   },
   {
+    path: '/filter',
+    name: 'filter',
+    component: () => import('@/components/HeaderFilterPopover.vue')    
+  },
+  {
     path: '/account',
     name: 'account',
     component: () => import('@/views/Account.vue')

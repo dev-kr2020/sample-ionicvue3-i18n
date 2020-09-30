@@ -25,7 +25,7 @@
           {{ t(title) }}
         </div>
         <div>
-         <small>Selected filter: {{ selectedFilter }}</small> 
+         <small>Selected filter: {{ selectedShape }}</small> 
         </div>
       </ion-title>
     </ion-toolbar>
@@ -66,8 +66,7 @@ export default defineComponent({
     IonTitle
   },
   data () {
-    return {
-      selectedFilter: ''
+    return {      
     }
   },
   setup () {
@@ -81,7 +80,10 @@ export default defineComponent({
   computed: {
     photoURL () {    
         return '/assets/icon/icon.png'    
-    }    
+    },
+    selectedShape () {
+      return this.$store.getters.selectedShape
+    }  
   },
   methods: {
     async openFilter (ev) {
@@ -90,7 +92,8 @@ export default defineComponent({
           component: HeaderFilterPopover,
           event: ev,
           componentProps: {
-            parent: this
+            parent: this,
+            navFrom: 'header'
           },
           translucent: true
         })
@@ -99,8 +102,9 @@ export default defineComponent({
         alert(error)
       }
     },
-    saveFilter (selectedFilter) {
-        this.selectedFilter = selectedFilter;
+   async saveFilter (selectedShape) {
+       await this.$store.dispatch('saveSelectedShape', selectedShape)
+        
     }   
   }
 })
