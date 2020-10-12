@@ -1,49 +1,48 @@
 <template>
-  <ion-page>
+  <div>
     <Header title='message.filter' v-if="navFrom === 'menu'" /> 
     <ion-content>
       <ion-list lines="none">
         <ion-radio-group v-model="shape" allowEmptySelection="false">
-          <ion-item>
-            <ion-label>{{ t("message.triangle") }}</ion-label>
-            <ion-radio :value="t('message.triangle')">{{
-              t("message.triangle")
-            }}</ion-radio>
+          <ion-item>           
+            <ion-radio :value="t('message.triangle')">
+              <ShapeChip shape="triangle" />
+             </ion-radio>
+              <ion-label>{{ t("message.triangle") }}</ion-label>
           </ion-item>
-          <ion-item>
+          <ion-item>            
+            <ion-radio :value="t('message.ellipse')"><ShapeChip shape="ellipse" /></ion-radio>
             <ion-label>{{ t("message.ellipse") }}</ion-label>
-            <ion-radio :value="t('message.ellipse')">{{
-              t("message.ellipse")
-            }}</ion-radio>
           </ion-item>
           <ion-item>
-            <ion-label>{{ t("message.square") }}</ion-label>
-            <ion-radio :value="t('message.square')">{{
-              t("message.square")
-            }}</ion-radio>
+            <ion-radio :value="t('message.square')"><ShapeChip shape="square" /></ion-radio>
+            <ion-label><ShapeChip shape="square" /></ion-label>
           </ion-item>
         </ion-radio-group>
       </ion-list>
-      <ion-button @click="save()">{{ t("message.save") }}</ion-button>
+      <ion-button @click="save()" expand="block">{{ t("message.save") }}</ion-button>
     </ion-content>
-  </ion-page>
+  </div>
 </template>
 <script>
 import {
-  IonPage,
+  // IonPage,
   IonContent,
   IonList,
   IonRadioGroup,
   IonItem,
   IonRadio,
   IonLabel,
-  IonButton
+  IonButton,
+  popoverController
 } from "@ionic/vue";
 import { useI18n } from "vue-i18n";
 import Header from '@/components/Header'
+import ShapeChip from '@/components/ShapeChip'
 export default {
   name: "HeaderFilterPopover",
   props: {
+    parentComp: { required: true },
     navFrom: { required: false, type: String, default: 'menu'}
   },
   data() {
@@ -63,7 +62,8 @@ export default {
   },
   components: {
     Header,
-    IonPage,
+    ShapeChip,
+    // IonPage,
     IonContent,
     IonList,
     IonRadioGroup,
@@ -81,7 +81,8 @@ export default {
     async save() {     
       if(this.shape){
       if(this.navFrom !== 'menu'){
-         this.$parent.saveFilter(this.shape);        
+         this.parentComp.saveFilter(this.shape); 
+         popoverController.dismiss()       
       }else {
         await this.$store.dispatch('saveSelectedShape', this.shape)
         alert("Saved")

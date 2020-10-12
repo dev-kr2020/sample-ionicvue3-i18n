@@ -14,6 +14,11 @@
           <ion-icon :icon="filter" />
         </ion-button>
       </ion-buttons>
+       <ion-buttons slot="end" >
+        <ion-button @click="editAccount($event)">
+          <ion-icon :icon="create" />
+        </ion-button>
+      </ion-buttons>
 
       <ion-buttons slot="end">
         <ion-avatar>
@@ -42,10 +47,12 @@ import {
   IonImg,
   IonIcon,
   IonTitle,
-  popoverController
+  popoverController,
+  modalController
 } from '@ionic/vue'
-import { filter } from 'ionicons/icons'
+import { filter, create } from 'ionicons/icons'
 import HeaderFilterPopover from '@/components/HeaderFilterPopover.vue'
+import Account from '@/views/Account'
 import { useI18n } from 'vue-i18n'
 import { defineComponent } from 'vue'
 export default defineComponent({
@@ -74,7 +81,8 @@ export default defineComponent({
     return {
       t,
       tm,
-      filter
+      filter,
+      create
     }
   },
   computed: {
@@ -89,10 +97,9 @@ export default defineComponent({
     async openFilter (ev) {
       try {
         const popover = await popoverController.create({
-          component: HeaderFilterPopover,
-          event: ev,
+          component: HeaderFilterPopover,         
           componentProps: {
-            parent: this,
+            parentComp: this,
             navFrom: 'header'
           },
           translucent: true
@@ -105,6 +112,18 @@ export default defineComponent({
    async saveFilter (selectedShape) {
        await this.$store.dispatch('saveSelectedShape', selectedShape)
         
+    },
+    async editAccount(ev){
+      const modal = await modalController
+        .create({
+          component: Account,
+          componentProps: {            
+          },
+          animated: true,
+          backdropDismiss: false,
+          showBackdrop: true
+        })
+      modal.present()
     }   
   }
 })
